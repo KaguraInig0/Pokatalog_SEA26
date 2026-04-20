@@ -8,14 +8,19 @@ body {
 
 .main-header {
   background-color: rgba(3, 4, 94, 0.7);
-  padding-bottom: 10px;
+  padding: 10px 16px;
   position: relative;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
 }
 
 .title {
+  flex: 1;
   text-align: center;
   margin: 0;
-  padding: 20px 0;
+  padding: 10px 0;
   font-size: 3em;
   font-family: "Courier New", monospace;
   font-weight: bold;
@@ -134,24 +139,21 @@ body {
 }
 
 #filter-dropdown {
-  position: absolute;
-  top: 16px;
-  left: 16px;
+  position: relative;
   z-index: 150;
+  flex-shrink: 0;
 }
 
 #sort-dropdown {
-  position: absolute;
-  top: 16px;
-  left: 114px;
+  position: relative;
   z-index: 150;
+  flex-shrink: 0;
 }
 
 #reset-button {
-  position: absolute;
-  top: 16px;
-  left: 215px;
+  position: relative;
   z-index: 150;
+  flex-shrink: 0;
 }
 
 #filter-menu,
