@@ -1,31 +1,63 @@
 <!doctype html>
 <html>
   <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
+    <title>Water Pokemon Catalog</title>
+    <meta name="description" content="A size-based field guide to water-type Pokemon." />
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="data.js"></script>
     <script type="text/javascript" src="scripts.js"></script>
   </head>
 
   <body>
+    <div id="landing-page">
+      <h1 id="landing-title">Water Pokemon Catalog</h1>
+      <p id="landing-sub">A size-based field guide to water-type Pokemon</p>
+      <button onclick="enterCatalog()">Enter →</button>
+    </div>
+
     <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
+      <div id="filter-dropdown">
+        <button onclick="toggleFilter()"> Filter</button>
+        <div id="filter-menu">
+          <p id="filter-label">Filter by Size</p>
+          <button onclick="filterBySize('small'); toggleFilter()">Smaller than Human</button>
+          <button onclick="filterBySize('medium'); toggleFilter()">Human Size</button>
+          <button onclick="filterBySize('large'); toggleFilter()">Larger than Human</button>
+        </div>
+      </div>
+      <div id="sort-dropdown">
+        <button onclick="toggleSort()">↕ Sort</button>
+        <div id="sort-menu">
+          <p id="sort-label">Sort by</p>
+          <button onclick="sortByAlpha(); toggleSort()">A → Z</button>
+          <button onclick="sortByDefault(); toggleSort()">Default Order</button>
+        </div>
+      </div>
+      <div id="reset-button">
+        <button onclick="currentList = [...originalPokemon]; showCards(originalPokemon)">↺ Reset All</button>
+      </div>
+      <h1 class="title">Water Pokemon Catalog</h1>
     </header>
     <div id="card-container"></div>
     <div class="card" style="display: none">
       <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
+        <h2>name</h2>
+        <img src="" alt="sprite" />
+        <p class="dexNum"></p>
+        <p class="classification"></p>
+        <p class="height"></p>
+        <p class="weight"></p>
       </div>
     </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
+    <div id="popup-overlay" onclick="closePopup()">
+      <div id="popup" onclick="event.stopPropagation()">
+        <button id="popup-close" onclick="closePopup()">✕</button>
+        <img id="popup-sprite" src="" alt="" />
+        <h2 id="popup-name"></h2>
+        <p id="popup-size-label"></p>
+        <p id="popup-factoid"></p>
+      </div>
     </div>
+
   </body>
 </html>
